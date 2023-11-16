@@ -1,0 +1,11 @@
+<meta>
+    <script src="main.lua" type="server" />
+
+    <script src="server/functions.lua" type="server" />
+    <script src="server/events.lua" type="server" />
+    
+    <script src="client/main.lua" type="client" />
+    <script src="client/functions.lua" type="client" />
+
+    <script src="client/gui/functions.lua" type="client" />
+</meta>
