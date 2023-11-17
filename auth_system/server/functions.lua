@@ -36,6 +36,7 @@ function fetch_player_character_list(player, player_id)
         local character_list = exports.db_system:db_query("SELECT `id`, `first_name`, `last_name` FROM `characters` WHERE `owner_id` = ?", player_id)
 
         if (character_list) then
+            outputDebugString("fetch_player_character_list triggered")
             triggerClientEvent(player, "show_player_character_list", player, character_list)
         end
     end
@@ -44,7 +45,7 @@ end
 function assign_player_data(player, player_data)
     if (player and player_data) then
         setElementData(player, "id", player_data[1]["id"])
-        setElementData(player, "name", player_data[1]["name"])
+        setElementData(player, "name", player_data[1]["username"])
 
         fetch_player_character_list(player, player_data[1]["id"])
     end

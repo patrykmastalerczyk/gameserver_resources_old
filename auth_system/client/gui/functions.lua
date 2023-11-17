@@ -90,6 +90,7 @@ end
 
 addEvent("show_player_character_list", true)
 addEventHandler("show_player_character_list", root, function(characters)
+    outputDebugString("show_player_character_list triggered")
     local character_list = {}
 
     for _, character in ipairs(characters) do
@@ -124,7 +125,7 @@ addEventHandler("show_player_character_list", root, function(characters)
     addEventHandler("onClientGUIClick", characters_window.choose_button, function()
         local selected_item = guiGridListGetSelectedItem(characters_window.character_list)
         
-        if selected_item then
+        if (selected_item) then
             triggerServerEvent("validate_player_character", localPlayer, localPlayer, character_list[selected_item + 1]["id"])
 
             guiSetVisible(characters_window.main_window, false)
