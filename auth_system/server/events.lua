@@ -21,7 +21,7 @@ addEvent("validate_player_character", true)
 addEventHandler("validate_player_character", root, function(player, character_id)
     if (player and getElementType(player) == "player" and character_id and type(character_id) == "number") then
         local player_id = getElementData(player, "id")
-        local player_name = getElementData(player, "username")
+        local player_name = getElementData(player, "name")
 
         if (player_id and player_name) then -- check if the player owns the character
             local character_data = exports.db_system:db_query("SELECT * FROM `characters` WHERE `id` = ? AND `owner_id` = ?", character_id, player_id)
