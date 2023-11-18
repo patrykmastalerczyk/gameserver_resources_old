@@ -1,4 +1,13 @@
 <meta>
     <script src="main.lua" type="server" />
-    <script src="functions.lua" type="server" />
+
+    <script src="server/functions.lua" type="server" />
+    <script src="server/events.lua" type="server" />
+
+    <script src="client/events.lua" type="client" />
+
+    <script src="server/misc/functions.lua" type="server" />
+
+    <export function="set_interior_data" type="server" />
+    <export function="get_interior_data" type="shared" />
 </meta>
