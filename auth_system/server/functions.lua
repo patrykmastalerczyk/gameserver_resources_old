@@ -36,7 +36,6 @@ function fetch_player_character_list(player, player_id)
         local character_list = exports.db_system:db_query("SELECT `id`, `first_name`, `last_name` FROM `characters` WHERE `owner_id` = ?", player_id)
 
         if (character_list) then
-            outputDebugString("fetch_player_character_list triggered")
             triggerClientEvent(player, "show_player_character_list", player, character_list)
         end
     end
