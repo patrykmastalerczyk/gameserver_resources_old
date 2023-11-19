@@ -27,7 +27,7 @@ function spawn_player_character(player, character_id)
         spawnPlayer(player, 1480.273438, -1723.510742, 13.546875)
         setElementModel(player, character_skin)
         setCameraTarget(player, player)
-        fadeCamera(player, true)
+        fadeCamera(player, true, 2.0)
     end
 end
 

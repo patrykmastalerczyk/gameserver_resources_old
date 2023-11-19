@@ -12,14 +12,12 @@ end
 
 function get_interior_data(id, data)
     if (id and type(id) == "number" and data and type(data) == "string") then
-        if (interior_data[id] == nil) then
-            return false
-        end
-        
         local data_obtained = interior_data[id][data]
 
         if (data_obtained) then
             return data_obtained
         end
+
+        return false
     end
 end
