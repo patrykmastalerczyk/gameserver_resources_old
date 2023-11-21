@@ -21,3 +21,7 @@ function get_interior_data(id, data)
         return false
     end
 end
+
+function get_interiors_data()
+    return interior_data
+end
