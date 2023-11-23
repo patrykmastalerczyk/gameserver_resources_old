@@ -9,6 +9,9 @@
 
     <script src="shared/functions.lua" type="shared" />
 
+    <file src="arrow.png" />
+    <file src="light.png" />
+
     <export function="set_interior_data" type="server" />
     <export function="get_interior_data" type="shared" />
 </meta>
