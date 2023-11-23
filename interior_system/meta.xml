@@ -4,14 +4,16 @@
     <script src="server/events.lua" type="server" />
     <script src="server/functions.lua" type="server" />
 
+    <script src="server/misc/events.lua" type="server" />
+    <script src="server/misc/functions.lua" type="server" />
+
     <script src="client/events.lua" type="client" />
     <script src="client/functions.lua" type="client" />
 
-    <script src="shared/functions.lua" type="shared" />
+    <script src="client/misc/events.lua" type="client" />
+    <script src="client/misc/functions.lua" type="client" />
 
-    <file src="arrow.png" />
-    <file src="light.png" />
 
-    <export function="set_interior_data" type="server" />
-    <export function="get_interior_data" type="shared" />
+    <file src="client/files/icons/arrow.png" />
+    <file src="client/files/light.png" />
 </meta>

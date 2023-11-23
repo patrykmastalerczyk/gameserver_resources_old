@@ -22,7 +22,6 @@ function initialize_interior_data()
             end
         end
 
-        -- create interior markers and assign them to specified interior
         create_interior_markers(interior_data)
     end
 end
@@ -41,16 +40,19 @@ function create_interior_markers(interior_list)
             
                     if (entrance_marker) then
                         setElementData(entrance_marker, "interior_id", interior_id)
+                        setElementData(entrance_marker, "title", interior["title"])
+                        setElementData(entrance_marker, "action_type", "enter")
                         setElementDimension(entrance_marker, entrance_dimension)
     
                         local exit_x, exit_y, exit_z = interior["exit_x"], interior["exit_y"], interior["exit_z"]
                         local exit_dimension = interior["exit_dimension"]
     
                         if (exit_x and exit_y and exit_z and exit_dimension) then
-                            local exit_marker = createMarker(exit_x, exit_y, exit_z + 1, "cylinder", 1.0, 255, 0, 0, 0)
+                            local exit_marker = createMarker(exit_x, exit_y, exit_z - 1, "cylinder", 1.0, 255, 0, 0, 0)
     
                             if (exit_marker) then
                                 setElementData(exit_marker, "interior_id", interior_id)
+                                setElementData(exit_marker, "action_type", "exit")
                                 setElementDimension(exit_marker, exit_dimension)
                             end
                         end
