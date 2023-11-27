@@ -2,7 +2,7 @@ local db_settings = {
     host = "localhost",
     username = "root",
     password = "",
-    db_name = "test_db",
+    db_name = "mta_db",
 
     db_connection = nil
 }

@@ -6,11 +6,13 @@ function is_player_within_interior_marker(player)
         local marker_dimension = getElementDimension(marker)
 
         if (player_dimension == marker_dimension) then
-            if (isElementWithinMarker(player, marker)) then
-                return marker
+            local interior_id = getElementData(marker, "interior_id")
+
+            if (interior_id) then -- check if marker is assigned to any interior
+                if (isElementWithinMarker(player, marker)) then
+                    return marker
+                end
             end
         end
     end
-
-    return false
 end

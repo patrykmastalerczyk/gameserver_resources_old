@@ -24,7 +24,7 @@ function spawn_player_character(player, character_id)
     if (player and character_id) then
         local character_skin = get_character_data(character_id, "skin")
 
-        spawnPlayer(player, 1480.273438, -1723.510742, 13.546875)
+        spawnPlayer(player, 1131.371094, -1619.210938, 13.785389)
         setElementModel(player, character_skin)
         setCameraTarget(player, player)
         fadeCamera(player, true, 2.0)

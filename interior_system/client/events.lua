@@ -40,7 +40,18 @@ addEventHandler("onClientRender", root, function()
 
                     if (interior_title) then
                         dxDrawText(interior_title, sx1, sy1, sx1, sy1, tocolor(255, 255, 255, text_alpha), text_size, "default-bold", "center", "bottom", false, false, false, true)
-                        dxDrawText("Naciśnij E, aby wejść.", sx2, sy2, sx2, sy2, tocolor(255, 255, 255, text_alpha), text_size, "default", "center", "bottom", false, false, false, true)
+
+                        local action_type = getElementData(marker, "action_type")
+
+                        if (action_type) then
+                            if (action_type == "enter") then
+                                dxDrawText("Naciśnij E, aby wejść.", sx2, sy2, sx2, sy2, tocolor(255, 255, 255, text_alpha), text_size, "default", "center", "bottom", false, false, false, true)
+
+                            elseif (action_type == "exit") then
+                                dxDrawText("Naciśnij E, aby wyjść.", sx2, sy2, sx2, sy2, tocolor(255, 255, 255, text_alpha), text_size, "default", "center", "bottom", false, false, false, true)
+                            end
+                        end
+                
                     end
                 end
             end

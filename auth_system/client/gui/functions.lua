@@ -90,7 +90,6 @@ end
 
 addEvent("show_player_character_list", true)
 addEventHandler("show_player_character_list", root, function(characters)
-    outputDebugString("show_player_character_list triggered")
     local character_list = {}
 
     for _, character in ipairs(characters) do

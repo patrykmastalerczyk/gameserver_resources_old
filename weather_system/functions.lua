@@ -1,6 +1,6 @@
 local current_weather = nil
 
-local weather_list = {14, 15, 16}
+local weather_list = {1, 4, 8}
 
 function change_weather(weather_id)
     if (weather_id == nil) then
