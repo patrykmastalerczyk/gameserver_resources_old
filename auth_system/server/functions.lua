@@ -7,7 +7,10 @@ function set_character_data(id, data, value)
         end
 
         character_data[id][tostring(data)] = value
+        return true
     end
+
+    return false
 end
 
 function get_character_data(id, data)
@@ -16,6 +19,24 @@ function get_character_data(id, data)
 
         if (data_obtained) then
             return data_obtained
+        end
+    end
+end
+
+function remove_character_data(id, data)
+    if (id and type(id) == "number" and data and type(data) == "string") then
+        if not (character_data[id][data] == nil) then
+            character_data[id][data] = nil
+        end
+    end
+end
+
+function get_character_id(player)
+    if (player and getElementType(player) == "player") then
+        local character_id = getElementData(player, "character_id")
+        
+        if (character_id) then
+            return character_id
         end
     end
 end
@@ -46,6 +67,8 @@ function assign_player_data(player, player_data)
         setElementData(player, "id", player_data[1]["id"])
         setElementData(player, "name", player_data[1]["username"])
 
+        triggerClientEvent(player, "destroy_login_window", player)
+
         fetch_player_character_list(player, player_data[1]["id"])
     end
 end
@@ -63,6 +86,8 @@ function assign_player_character_data(player, character_id, character_data)
 
             set_character_data(character_id, "owner_id", player_id)
             set_character_data(character_id, "owner_username", player_name)
+
+            setElementData(player, "character_id", character_id)
 
             spawn_player_character(player, character_id)
         end

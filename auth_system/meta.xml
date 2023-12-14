@@ -8,4 +8,11 @@
     <script src="client/functions.lua" type="client" />
 
     <script src="client/gui/functions.lua" type="client" />
+
+    <export function="set_character_data" type="server" />
+    <export function="get_character_data" type="server" />
+    <export function="get_character_id" type="server" />
+    <export function="remove_character_data" type="server" />
+
+    <export function="get_character_id" type="client" />
 </meta>

@@ -8,6 +8,8 @@ local TEXT_MAX_ALPHA = 155
 local TEXT_MAX_SIZE = 1.5
 local TEXT_MAX_DISTANCE = 45
 
+interior_title_received = false
+
 addEventHandler("onClientRender", root, function()
     local player_dimension = getElementDimension(localPlayer)
     local px, py, pz = getElementPosition(localPlayer)
@@ -51,7 +53,6 @@ addEventHandler("onClientRender", root, function()
                                 dxDrawText("Naciśnij E, aby wyjść.", sx2, sy2, sx2, sy2, tocolor(255, 255, 255, text_alpha), text_size, "default", "center", "bottom", false, false, false, true)
                             end
                         end
-                
                     end
                 end
             end

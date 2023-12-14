@@ -1,6 +1,6 @@
 local screen_w, screen_h = guiGetScreenSize()
 
-local login_window = {
+login_window = {
     login_button,
     back_button,
     main_window,
@@ -10,7 +10,7 @@ local login_window = {
     password_label
 }
 
-local selection_window = {
+selection_window = {
     main_window,
     login_button,
     register_button,
@@ -18,7 +18,7 @@ local selection_window = {
     register_label
 }
 
-local characters_window = {
+characters_window = {
     main_window,
     choose_button,
     back_button,
@@ -27,6 +27,7 @@ local characters_window = {
 
 function show_player_selection_window()
     selection_window.main_window = guiCreateWindow((screen_w - 376) / 2, (screen_h - 224) / 2, 376, 224, "Co chcesz zrobić?", false)
+    guiWindowSetMovable(selection_window.main_window, false)
     guiWindowSetSizable(selection_window.main_window, false)
 
     selection_window.login_button = guiCreateButton(15, 165, 121, 33, "Logowanie", false, selection_window.main_window)
@@ -80,8 +81,6 @@ function show_player_login_window()
 
         if (username and password) then
             if (type(username) == "string" and type(password) == "string") then
-                guiSetVisible(login_window.main_window, false)
-
                 triggerServerEvent("validate_player_credentials", localPlayer, localPlayer, username, password)
             end
         end
@@ -129,7 +128,6 @@ addEventHandler("show_player_character_list", root, function(characters)
 
             guiSetVisible(characters_window.main_window, false)
             showCursor(false)
-            toggle_player_default_components(true)
         end
     end, false)
 end)

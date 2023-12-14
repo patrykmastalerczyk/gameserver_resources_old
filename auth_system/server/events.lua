@@ -11,8 +11,12 @@ addEventHandler("validate_player_credentials", root, function(player, username, 
     
                 if (password_match) then
                     assign_player_data(player, player_data)
+                else
+                    triggerClientEvent(player, "invalid_data", player, "password")
                 end
             end
+        else
+            triggerClientEvent(player, "invalid_data", player, "username")
         end
     end
 end)
