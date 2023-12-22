@@ -1,0 +1,11 @@
+<meta>
+    <script src="server/functions.lua" type="server" />
+    <script src="server/events.lua" type="server" />
+    <script src="server/commands.lua" type="server" />
+
+    <script src="client/functions.lua" type="client" />
+    <script src="client/events.lua" type="client" />
+    <script src="client/commands.lua" type="client" />
+
+    <export function="request_character_group_list" type="server" />
+</meta>

@@ -1,7 +1,7 @@
 addEvent("validate_player_credentials", true)
 addEventHandler("validate_player_credentials", root, function(player, username, password)
     if (player and getElementType(player) == "player" and username and type(username) == "string" and password and type(password) == "string") then
-        local player_data = exports.db_system:db_query("SELECT * FROM `players` WHERE `username` = ? LIMIT 1", username)
+        local player_data = exports.database:execute_query("SELECT * FROM `players` WHERE `username` = ? LIMIT 1", username)
 
         if (player_data) then
             local hashed_password = player_data[1]["password"]
@@ -28,7 +28,7 @@ addEventHandler("validate_player_character", root, function(player, character_id
         local player_name = getElementData(player, "name")
 
         if (player_id and player_name) then -- check if the player owns the character
-            local character_data = exports.db_system:db_query("SELECT * FROM `characters` WHERE `id` = ? AND `owner_id` = ?", character_id, player_id)
+            local character_data = exports.database:execute_query("SELECT * FROM `characters` WHERE `id` = ? AND `owner_id` = ?", character_id, player_id)
     
             if (character_data) then
                 assign_player_character_data(player, character_id, character_data)

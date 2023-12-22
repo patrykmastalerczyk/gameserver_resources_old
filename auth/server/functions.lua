@@ -31,11 +31,11 @@ function remove_character_data(id, data)
     end
 end
 
-function get_character_id(player)
+function get_player_character_id(player)
     if (player and getElementType(player) == "player") then
         local character_id = getElementData(player, "character_id")
         
-        if (character_id) then
+        if (character_id and type(character_id) == "number") then
             return character_id
         end
     end
@@ -54,7 +54,7 @@ end
 
 function fetch_player_character_list(player, player_id)
     if (player and player_id) then
-        local character_list = exports.db_system:db_query("SELECT `id`, `first_name`, `last_name` FROM `characters` WHERE `owner_id` = ?", player_id)
+        local character_list = exports.database:execute_query("SELECT `id`, `first_name`, `last_name` FROM `characters` WHERE `owner_id` = ?", player_id)
 
         if (character_list) then
             triggerClientEvent(player, "show_player_character_list", player, character_list)
@@ -87,7 +87,11 @@ function assign_player_character_data(player, character_id, character_data)
             set_character_data(character_id, "owner_id", player_id)
             set_character_data(character_id, "owner_username", player_name)
 
+            set_character_data(character_id, "owner", player)
+
             setElementData(player, "character_id", character_id)
+
+            exports.groups:request_character_group_list(player)
 
             spawn_player_character(player, character_id)
         end

@@ -33,11 +33,11 @@ addEventHandler("destroy_login_window", root, function(data_type)
     guiSetVisible(login_window.main_window, false)
 end) -- todo
 
-function get_character_id(player)
+function get_player_character_id(player)
     if (player and getElementType(player) == "player") then
         local character_id = getElementData(player, "character_id")
         
-        if (character_id) then
+        if (character_id and character_id == "number") then
             return character_id
         end
     end

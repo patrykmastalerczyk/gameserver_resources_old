@@ -1,0 +1,6 @@
+<meta>
+    <script src="main.lua" type="server" />
+
+    <export function="execute_query" type="server" />
+    <export function="execute_update" type="server" />
+</meta>

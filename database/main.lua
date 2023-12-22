@@ -25,7 +25,7 @@ addEventHandler("onResourceStop", getResourceRootElement(), function()
     end
 end)
 
-function db_query(...)
+function execute_query(...)
     if (db_settings.db_connection) then
         local query_handle = dbQuery(db_settings.db_connection, ...)
 
@@ -40,7 +40,7 @@ function db_query(...)
     end
 end
 
-function db_exec(...)
+function execute_update(...)
     if (db_settings.db_connection) then
         local query_handle = dbQuery(db_settings.db_connection, ...)
 
