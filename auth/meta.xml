@@ -1,18 +1,19 @@
 <meta>
-    <script src="main.lua" type="server" />
-
     <script src="server/functions.lua" type="server" />
     <script src="server/events.lua" type="server" />
-    
-    <script src="client/main.lua" type="client" />
-    <script src="client/functions.lua" type="client" />
+    <script src="server/commands.lua" type="server" />
 
-    <script src="client/gui/functions.lua" type="client" />
+    <script src="server/misc/player_functions.lua" type="server" />
+    <script src="server/misc/character_functions.lua" type="server" />
+    
+    <script src="client/functions.lua" type="client" />
 
     <export function="set_character_data" type="server" />
     <export function="get_character_data" type="server" />
-    <export function="get_player_character_id" type="server" />
     <export function="remove_character_data" type="server" />
 
-    <export function="get_player_character_id" type="client" />
+    <export function="set_player_data" type="server" />
+    <export function="get_player_data" type="server" />
+
+    <export function="send_player_message" type="server" />
 </meta>

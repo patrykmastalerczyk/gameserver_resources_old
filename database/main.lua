@@ -26,14 +26,14 @@ addEventHandler("onResourceStop", getResourceRootElement(), function()
 end)
 
 function execute_query(...)
+    local args = {...}
+
     if (db_settings.db_connection) then
-        local query_handle = dbQuery(db_settings.db_connection, ...)
+        local sanitized_query = dbPrepareString(db_settings.db_connection, unpack(args))
+        local query_handle = dbQuery(db_settings.db_connection, sanitized_query)
 
         if (query_handle) then
             local result, num_affected_rows, last_insert_id = dbPoll(query_handle, -1)
-
-            -- if (#result == 1) then result = result[1] end
-            if (#result == 0) then result = nil end
 
             return result, num_affected_rows, last_insert_id
         end
