@@ -52,7 +52,7 @@ function show_player_character_list(player)
                     table.insert(prepared_character_list[player_id], character_data)
                 end
 
-                send_player_message(player, "Wybierz postać: /character [id]")
+                send_player_message(player, "Wybierz postać: /char [id]")
                 for slot, character in ipairs(prepared_character_list[player_id]) do
                     send_player_message(player, string.format("* %s %s (%d)", character["first_name"], character["last_name"], slot))
                 end
@@ -114,6 +114,7 @@ function initialize_player_character(player, character)
             set_character_data(character_id, "drivers_license", drivers_license)
 
             exports.groups:request_character_group_list(character_id)
+            exports.items:request_character_item_list(character_id)
 
             fadeCamera(player, true)
             setCameraTarget(player, player)

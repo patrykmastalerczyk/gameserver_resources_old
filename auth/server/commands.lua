@@ -1,17 +1,15 @@
-addCommandHandler("account", function(player, command_name, ...)
+addCommandHandler("log", function(player, command_name, ...)
     local args = {...}
 
-    if (args[1] == "login") then
-        if (args[2] and args[3]) then
-            local username = tostring(args[2])
-            local password = tostring(args[3])
+    if (args[1] and args[2]) then
+        local username = tostring(args[1])
+        local password = tostring(args[2])
 
-            validate_player_credentials(player, username, password)
-        end
+        validate_player_credentials(player, username, password)
     end
 end)
 
-addCommandHandler("character", function(player, command_name, ...)
+addCommandHandler("char", function(player, command_name, ...)
     local args = {...}
 
     if (args[1]) then

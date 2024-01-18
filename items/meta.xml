@@ -1,0 +1,7 @@
+<meta>
+    <script src="server/functions.lua" type="server" />
+    <script src="server/events.lua" type="server" />
+    <script src="server/commands.lua" type="server" />
+
+    <export function="request_character_item_list" type="server" />
+</meta>
