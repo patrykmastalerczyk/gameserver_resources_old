@@ -23,7 +23,3 @@ function get_player_data(player, data)
 
     return false
 end
-
-function send_player_message(player, message)
-    outputChatBox(message, player)
-end

@@ -54,9 +54,9 @@ function show_player_character_list(player)
                     table.insert(prepared_character_list[player_id], character_data)
                 end
 
-                send_player_message(player, "Wybierz postać: (/char)")
+                outputChatBox("Wybierz postać, którą chcesz grać:")
                 for slot, character in ipairs(prepared_character_list[player_id]) do
-                    send_player_message(player, string.format("* %s %s (%d)", character["first_name"], character["last_name"], slot))
+                    outputChatBox(string.format("* %s %s (%d)", character["first_name"], character["last_name"], slot))
                 end
             end
         end
@@ -75,7 +75,7 @@ function validate_player_character(player, selected_character_id)
             if (selected_character) then
                 initialize_player_character(player, selected_character)
 
-                send_player_message(player, string.format("Zalogowałeś się na postać: %s %s.", selected_character["first_name"], selected_character["last_name"]))
+                outputChatBox(string.format("Zalogowałeś się na postać: %s %s.", selected_character["first_name"], selected_character["last_name"]))
                 prepared_character_list[player_id] = nil
             end
         end

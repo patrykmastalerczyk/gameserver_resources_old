@@ -30,7 +30,7 @@ function update_character_current_group(character_id, group_info)
                     validate_character_duty_timer_existing(character_id, current_group_id)
 
                     exports.auth:remove_character_data(character_id, "current_group_id")
-                    exports.auth:send_player_message(player, string.format("Kończysz pracę w grupie %s. Przepracowałeś łącznie %d minut/y.", requested_group_name, character_group_data["total_duty_time"]))
+                    outputChatBox(string.format("Kończysz pracę w grupie %s. Przepracowałeś łącznie %d minut/y.", requested_group_name, character_group_data["total_duty_time"]))
                 else
                     local current_group_online = get_group_data(requested_group_id, "online")
             
@@ -42,7 +42,7 @@ function update_character_current_group(character_id, group_info)
                     validate_character_duty_timer_existing(character_id, requested_group_id)
             
                     exports.auth:set_character_data(character_id, "current_group_id", requested_group_id)
-                    exports.auth:send_player_message(player, string.format("Rozpoczynasz pracę w grupie %s.", requested_group_name))
+                    outputChatBox(string.format("Rozpoczynasz pracę w grupie %s.", requested_group_name))
                 end
             end
         end
@@ -74,7 +74,7 @@ function update_character_duty_time(character_id)
 
             if (salary) then
                 salary = salary[1]["salary"]
-                exports.auth:send_player_message(player, string.format("Otrzymujesz $%d jako wypłatę z grupy.", salary))
+                outputChatBox(string.format("Otrzymujesz $%d jako wypłatę z grupy.", salary))
             end
         end
     end

@@ -1,10 +1,8 @@
 addCommandHandler("log", function(player, command_name, ...)
     local logged_in = get_player_data(player, "logged_in")
 
-    if (logged_in == false) then
-            
+    if (not logged_in) then
         local args = {...}
-        
 
         if (args[1] and args[2]) then
             local username = tostring(args[1])
@@ -18,11 +16,17 @@ addCommandHandler("log", function(player, command_name, ...)
 end)
 
 addCommandHandler("char", function(player, command_name, ...)
-    local args = {...}
+    local character_id = get_player_data(player, "character_id")
 
-    if (args[1]) then
-        local selected_char = tonumber(args[1])
+    if (not character_id) then
+        local args = {...}
 
-        validate_player_character(player, selected_char)
+        if (args[1]) then
+            local selected_char = tonumber(args[1])
+
+            validate_player_character(player, selected_char)
+        end
+    else
+        outputChatBox("Postać jest już wybrana.")
     end
 end)
