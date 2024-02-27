@@ -1,11 +1,19 @@
 addCommandHandler("log", function(player, command_name, ...)
-    local args = {...}
+    local logged_in = get_player_data(player, "logged_in")
 
-    if (args[1] and args[2]) then
-        local username = tostring(args[1])
-        local password = tostring(args[2])
+    if (logged_in == false) then
+            
+        local args = {...}
+        
 
-        validate_player_credentials(player, username, password)
+        if (args[1] and args[2]) then
+            local username = tostring(args[1])
+            local password = tostring(args[2])
+
+            validate_player_credentials(player, username, password)
+        end
+    else
+        outputChatBox("Jesteś już zalogowany.")
     end
 end)
 

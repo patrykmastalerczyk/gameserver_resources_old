@@ -13,7 +13,7 @@ function set_player_data(player, data, value)
 end
 
 function get_player_data(player, data)
-    if (player and getElementType(player) == "player" and data and type(data) == "string") then
+    if (player_data[player]) then
         local data_obtained = player_data[player][data]
 
         if (data_obtained) then
