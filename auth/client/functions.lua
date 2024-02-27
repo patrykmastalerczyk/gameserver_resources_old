@@ -1,4 +1,5 @@
 addEventHandler("onClientResourceStart", resourceRoot, function()
     fadeCamera(true)
-    outputChatBox("Zaloguj się na swoje konto: /log [login] [hasło]")
+    
+    outputChatBox("Zaloguj się na swoje konto: (/log)")
 end)

@@ -16,9 +16,11 @@ function validate_player_credentials(player, username, password)
                     set_player_data(player, "logged_in", true)
                     show_player_character_list(player)
                 else
-                    outputChatBox("Złe hasło.")
+                    outputChatBox("Wprowadzone hasło jest nieprawidłowe.")
                 end
             end
+        else
+            outputChatBox("Użytkownik o tej nazwie nie istnieje.")
         end
     end
 end
@@ -52,7 +54,7 @@ function show_player_character_list(player)
                     table.insert(prepared_character_list[player_id], character_data)
                 end
 
-                send_player_message(player, "Wybierz postać: /char [id]")
+                send_player_message(player, "Wybierz postać: (/char)")
                 for slot, character in ipairs(prepared_character_list[player_id]) do
                     send_player_message(player, string.format("* %s %s (%d)", character["first_name"], character["last_name"], slot))
                 end
