@@ -56,7 +56,7 @@ function show_player_character_list(player)
 
                 outputChatBox("Wybierz postać, którą chcesz grać:")
                 for slot, character in ipairs(prepared_character_list[player_id]) do
-                    outputChatBox(string.format("* %s %s (%d)", character["first_name"], character["last_name"], slot))
+                    outputChatBox(string.format("%s %s (s: %d)", character["first_name"], character["last_name"], slot))
                 end
             end
         end
@@ -100,9 +100,11 @@ function initialize_player_character(player, character)
             local identity_card = character["identity_card"]
             local drivers_license = character["drivers_license"]
 
+                        
+            set_player_data(player, "character_id", character_id)
+            
             set_character_data(character_id, "owner", player)
             set_character_data(character_id, "owner_id", player_id)
-            set_player_data(player, "character_id", character_id)
 
             set_character_data(character_id, "first_name", first_name)
             set_character_data(character_id, "last_name", last_name)
